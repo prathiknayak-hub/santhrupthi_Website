@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Santhrupthi</title>
+        <link rel="stylesheet" href="login.css"/>
+    </head>
+    <body>
+        <img src="images/Santhrupthi_logo.png" id="logo" id="frontImage"/>
+        <div class="loginform">
+            <h1 style="text-align: center;color:#a19b9b">Login Form</h1>
+            <form class="a" action="/login">
+                <div border="1">
+                  <select name="type" id="type" class="d">
+                    <option value="admin">Admin</option>
+                    <option value="donar">Donar</option>
+                    <option value="distributor">Distributor</option>
+                  </select>
+                  <input type="email" placeholder="Email Address" name="email" class="b">
+                  <br>
+                  <input type="password" placeholder="Password" name="password" class="b">
+                  <br>
+                  <div class="error"></div>
+                  <br/>
+                  <input type="submit" value="Login" class="c"/>
+              </div>
+            </form>
+            <p style="text-align: center;margin-top: 15%;font-weight: 600;color:#a19b9b">Not a member?
+            <a href="/register" style="text-decoration: none;color: rgb(235, 68, 68);">Signup now</a>
+            </p>
+        </div>
+        <script>
+            function preloadFunc() {
+            }
+            window.onpaint = preloadFunc();
+            const form = document.querySelector('form');
+            const error = document.querySelector('.error');
+          
+            form.addEventListener('submit', async (e) => {
+              e.preventDefault();
+              // reset errors
+              error.textContent = '';
+              // get values
+              const type=form.type.value;
+              const email = form.email.value;
+              const password = form.password.value;
+              try {
+                const res = await fetch('/login', {
+                  method: 'POST',
+                  body: JSON.stringify({ type,email, password }),
+                  headers: { 'Content-Type': 'application/json' }
+                });
+                const data = await res.json();
+                console.log('heredata',data.errors);
+                if (data.errors) {
+                  error.textContent = data.errors;
+                }
+                if (data.user) {
+                  location.assign('/donation');
+                }
+              }
+              catch (err) {
+                console.log('error',err);
+              }
+            });
+          </script>
+    </body>
+</html>

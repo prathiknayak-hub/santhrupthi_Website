@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Santhrupthi</title>
+        <link rel="stylesheet" href="login.css"/>
+    </head>
+    <body>
+        <img src="images/Santhrupthi_logo.png" id="logo" id="frontImage"/>
+        <div class="loginform">
+        <h1 style="text-align: center;color:#a19b9b">Signup Form</h1>
+        <form class="a"  action="/register">
+            <div border="1">
+              <select name="type" id="type" class="d">
+                <option value="donar">Donar</option>
+                <option value="distributor">Distributor</option>
+              </select>
+              <br>
+              <input type="email" placeholder="Email Address" name="email"  class="b">
+              <br>
+              <input type="password" placeholder="Password" name="password" id="password" class="b">
+              <br>
+              <input type="password" placeholder="Confirm Password" name="confirmpassword" id="confirmpassword" onkeyup='check();' class="b">
+              <br>
+              <span id='message'></span>
+              <div class="error"></div>
+              <input type="submit" value="Signup" class="c">
+            </div>
+        </form>
+        <p style="text-align: center;margin-top: 15%;font-weight: 600;color:#a19b9b"> Already have an account?
+        <a href="/login" style="text-decoration: none;color: rgb(235, 68, 68);">Login</a>
+        </p>
+    </div>
+    <script>
+        //for checking register password
+        var check = function () {
+          if (document.getElementById('password').value ==
+            document.getElementById('confirmpassword').value) {
+            document.getElementById('message').style.color = 'green';
+            document.getElementById('message').innerHTML = 'Password matching';
+          } else {
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').innerHTML = 'Password not matching';
+          }
+        }
+        function preloadFunc() {
+      
+        }
+        window.onpaint = preloadFunc();
+        const form = document.querySelector('form');
+        const error = document.querySelector('.error');
+      
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          console.log('pressed')
+          // reset errors
+          error.textContent = '';
+          // get values
+          const type = form.type.value;
+          const email = form.email.value;
+          const password = form.password.value;
+          const confirmpassword = form.confirmpassword.value;
+          if(document.getElementById('message').innerHTML != 'not matching'){
+            try {
+                const res = await fetch('/register', {
+                method: 'POST',
+                body: JSON.stringify({ type, email, password, confirmpassword}),
+                headers: { 'Content-Type': 'application/json' }
+                });
+                const data = await res.json();
+                console.log(data);
+                if (data.errors) {
+                error.textContent = data.errors;
+                }
+                if (data.user) {
+                location.assign('/');
+                }
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }
+        });
+      </script>
+    </body>
+</html>

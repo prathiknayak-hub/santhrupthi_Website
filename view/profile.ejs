@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santhrupthi</title>
+    <link rel="stylesheet" href="dashboard.css"/>
+</head>
+<body>
+    <div class="topbar">
+        <img src="images/Santhrupthi_logo.png" id="logo" id="frontImage"/>
+        <a href="/logout" class="logout">LogOut</a>
+    </div>
+    <div style="display:flex;flex-direction:row;">
+        <div class="sidebar">
+            <%if(type=="donar"){%>
+                <a href="/dashboard" class="links"><img src="images/home1.png"/>Home</a>
+            <%}%>
+            <a href="/donation" class="links"><img src="images/donation1.png"/>Donation</a>
+            <a href="/profile" class="links"><img src="images/profile1.png"/>Profile</a>
+        </div>
+        <div>
+            <form action="/profile" method="POST" class="profileForm">
+                <div style="display:flex;flex-direction:row;">
+                    <div>
+                        <p class="labels">Firstname</p>
+                        <input type="text" name="fname" value="<%=profile[0].fname%>" id="fname" class="inputFields"/>
+                    </div>
+                    <div>
+                        <p class="labels" style="margin-left:20%;">Lastname</p>
+                        <input type="text" name="lname" value="<%=profile[0].lname%>" id="lname" class="inputFields"/>
+                    </div>
+                </div>
+                <p class="labels">Email</p>
+                <input type="text" name="email" value="<%=profile[0].email%>" id="email" class="inputFields" disabled/>
+                <p class="labels">Phone</p>
+                <input type="text" name="phone" value="<%=profile[0].phone%>" id="phone" class="inputFields"/>
+                <p class="labels">Address</p>
+                <textarea name="address" id="address" class="inputFields" cols="40" rows="5"><%=profile[0].address%></textarea>
+                <br/>
+                <input type="submit" class="submitButton"/>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

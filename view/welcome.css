@@ -1,0 +1,191 @@
+*{
+   
+    font-family: Arial, Helvetica, sans-serif;
+}
+.header{
+    min-height: 100vh;
+    width:100%;
+    background-image: linear-gradient(rgba(3,5,12, 0.7),rgba(3, 5, 12, 0.7)),url(images/happy_children.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+#logo{
+    position:absolute;
+    /*border-radius: 20px;
+    box-shadow: 0 0 8px 8px black inset;*/
+    width: 30%;
+    margin-top: 2%;
+    margin-left: 5%;
+}
+.navbar{
+    position:absolute;
+    top:13%;
+    right: 8%;
+    letter-spacing: 1px;
+}
+.links{
+    text-decoration: none;
+    color:white;
+    font-size: 1em;
+    letter-spacing: 1px;
+    margin-left:50px;
+    font-weight: 500;
+}
+.mission{
+    position: absolute;
+    top:300px;
+    left:350px;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#missionhead{
+    font-size:2.5em;
+}
+#missionstmnt{
+    font-size: 3.3em;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: grey;
+}
+/*------Motive-----*/
+.motive {
+   margin-top: 5%;
+    width: 100%;
+}
+.motive hr{
+    height: 3px;
+    width: 60%;
+    margin: auto;
+    background-color: rgb(27, 20, 20);
+    margin-top: 5px;
+    margin-bottom: 20px;
+    display: absolute;
+}
+.motive2{
+    font-size: 2.2em;
+    text-align: left;
+    color: grey;
+    font-weight: 400;
+    width: 60%;
+    margin: auto;
+    
+}
+.motive3{
+    font-size: 1.5em;
+    text-align: left;
+    color: gray;
+    width: 30%;
+    margin-left: 20%;
+    margin-top: 3%;
+}
+.motive img{
+    width: 400px;
+    height: 350px;
+    margin-right: 20%;
+    margin-top: 3%;
+    float: right;
+    border-radius: 5%;
+}
+.motive4{
+    font-size: 1.75em;
+    text-align: left;
+    color: rgb(65, 84, 124);
+    font-weight: 400;
+    width: 60%;
+    margin: auto;
+    margin-top: 3%;
+    
+}
+
+/*-------Drivers-----*/
+
+.drivers{
+    width: 60%;
+    margin: auto;
+    text-align: left;
+    font-size: 2.8em;
+    color: gray;
+    font-weight: 300;
+    margin-top: 70px;
+}
+.drivers1{
+  
+    border-radius: 10px;
+    margin-left: 10%;
+    font-size: 1.2em;
+    width: 24%;
+    float: left;
+    padding: 2%;
+}
+.drivers2{
+    border-radius: 10px;
+    margin: auto;
+    font-size: 1.2em;
+    width: 24%;
+    padding: 2%;
+}
+.drivers3{
+  margin-right: 10%;
+    border-radius: 10px;
+    float: right;
+    font-size: 1.2em;
+    width: 24%;
+    padding:2%;
+}
+.dr img{
+    height: 300px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.dr p{
+    padding: 0;
+    text-align: left;
+    color: gray;
+}
+.dr h3{
+    
+    text-align: center;
+}
+
+
+
+
+.containers{
+    margin-left: 350px;
+}
+
+
+.description{
+    font-size: 1.5em;
+    text-align: left;
+    color: gray;
+    width: 75%;
+    margin-top: 3%;
+}
+
+.line{
+    height: 2px;
+    width: 40%;
+    margin-top: auto;
+    background-color: rgb(27, 20, 20);
+    margin-top: 50px;
+    margin-bottom: 20px;
+    display: absolute;
+}
+
+.heading{
+    color:gray;
+    margin-top: 5%;
+}
+
+.buttonss{
+    text-decoration: none;
+    color: rgb(235, 68, 68);
+    font-size: 20px;
+}
+
+.contactUs{
+    margin-top: 5%;
+}

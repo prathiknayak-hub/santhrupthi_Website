@@ -1,0 +1,54 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santhrupthi</title>
+    <link rel="stylesheet" href="dashboard.css"/>
+</head>
+<body>
+    <div class="topbar">
+        <img src="images/Santhrupthi_logo.png" id="logo" id="frontImage"/>
+        <a href="/logout" class="logout">LogOut</a>
+    </div>
+    <div style="display:flex;flex-direction:row;">
+        <div class="sidebar">
+          <%if(type=="donar"){%>
+            <a href="/dashboard" class="links"><img src="images/home1.png"/>Home</a>
+          <%}%>
+            <a href="/donation" class="links"><img src="images/donation1.png"/>Donation</a>
+            <a href="/profile" class="links"><img src="images/profile1.png"/>Profile</a>
+        </div>
+        <div style="width: 80%;">
+            <div class="row">
+              <%for(var i=0;i<donations.length;i++){%>
+                <div class="column">
+                  <div class="card">
+                    <h3><%=donations[i].iname%></h3>
+                    <p><%=donations[i].idescription%></p>
+                    <p>Date : <%=donations[i].idate.getDate()%>-<%=donations[i].idate.getMonth()%>-<%=donations[i].idate.getFullYear()%></p>
+                    <p>Location : <%=donations[i].ilocation%></p>
+                    <p>Quantity : <%=donations[i].qty%></p>
+                    <%if(donations[i].istatus==null){%>
+                      <p style="color:red;">Status : Not yet accepted</p>
+                      <%if(type=="distributor"){%>
+                      <form action="/donation" method="POST">
+                        <input type="text" name="itemid" id="itemid" value="<%=donations[i].itemid%>" hidden/>
+                        <input type="submit" value="Accept" class="submitDonate"/>
+                      </form>
+                      <%}%>
+                    <%}else{%>
+                      <p style="color:green;margin-top: 55px;">Status : Accepted</p>
+                    <%}%>
+                  </div>
+                </div>
+              <%}%>
+        
+              </div>
+        </div>
+    </div>
+</body>
+</html>
